@@ -1,5 +1,7 @@
 WELCOME TO ASSIGNMENT 1
 
+TOTAL POINTS : 200
+
 **IMPORTANT NOTICE**
     
     Please submit only report in a pdf format , anwering all part questions 
@@ -9,19 +11,13 @@ WELCOME TO ASSIGNMENT 1
 
 `PART 1 : OBSERVATION/SETUP OF THE PROJECT [50 pts]` 
 
-    1. Why do you think, we use following lambda operatoin [10 pts]
-       E = lambda x: np.insert(x, 0, 1, axis=1)
-       is used in following 
-       ./models/SimpleRegression.py
-       ./utils/RandomDataGenerator.py
-    
-    2. Did you understand this project structure? What are the key things 
+    1. Did you understand this project structure? What are the key things 
        you have noticed? [10 pts]
-    
-    3. Were you able to create environment using environment.yml 
+       
+    2. Were you able to create environment using environment.yml 
        file present in the directory? [10 pts]
        
-    4. You are encouraged to visit misc folder and play with datamanip.ipynb 
+    3. You are encouraged to visit misc folder and play with datamanip.ipynb 
        this notebook has basic data science pipe line , that shwos you how should you 
        deal with real world data [10 pts]
        
@@ -29,15 +25,21 @@ WELCOME TO ASSIGNMENT 1
        
        Did you complete exploring ipynb file? Why do you think it is important?
     
-    5. In datamanip.ipynb datasets are standardize before saving to train-test split
+    4. In datamanip.ipynb datasets are standardize before saving to train-test split
        why it is necessary? [10 pts]
+       
+    5. Why do you think, we use following lambda operatoin [10 pts]
+       E = lambda x: np.insert(x, 0, 1, axis=1)
+       is used in following 
+       ./models/SimpleRegression.py
+       ./utils/RandomDataGenerator.py
        
 
 `PART 2 : COMPLETE THE CODING [50 pts]` 
 
     You will be working on models/SimpleRegression.py file as your assignment
     
-    NOTE : Write only block of code you need to complete as your answers in 
+    NOTE : Write only block of code you need to complete as your answers in report
     
     HOW TO TEST YOUR CODE ??
         RUN IN TERMINAL : python main.py configs/ranuniconfig.txt
