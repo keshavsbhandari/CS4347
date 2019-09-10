@@ -22,7 +22,7 @@ class Linear(object):
         DEFINE One line of PREDICT FUNCTION USING LAMBDA OPERATIONS
         self.predict = lambda x:____??
         """
-        self.predict = lambda x: E(x).dot(self.theta)
+        self.predict = 
 
         self.alpha = alpha
         self.lmbda = lmbda
