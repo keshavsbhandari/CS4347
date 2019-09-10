@@ -1,7 +1,7 @@
 {
    "dataloader":{
-      "train_path":"../real_state_train.csv",
-      "test_path":"../real_state_test.csv"
+      "train_path":"data/real_state_train.csv",
+      "test_path":"data/real_state_test.csv"
    },
    "linear":{
       "iterations":1000,

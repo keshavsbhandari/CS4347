@@ -1,7 +1,7 @@
 {
    "dataloader":{
-      "train_path":"../video_feature_train.csv",
-      "test_path":"../video_feature_test.csv",
+      "train_path":"data/video_feature_train.csv",
+      "test_path":"data/video_feature_test.csv",
       "batch_size":100
    },
    "linear":{
