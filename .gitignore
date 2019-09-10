@@ -1,0 +1,9 @@
+configs/__pycache__
+data/__pycache__
+misc/__pycache__
+models/__pycache__
+utils/__pycache__
+*.pyc
+*.DS_Store
+.git
+.idea
