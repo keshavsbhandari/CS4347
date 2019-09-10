@@ -1,0 +1,15 @@
+{
+   "dataloader":{
+      "train_path":"../real_state_train.csv",
+      "test_path":"../real_state_test.csv"
+   },
+   "linear":{
+      "iterations":1000,
+      "xdim":6,
+      "alpha":0.001,
+      "lmbda":1e-05
+   },
+   "modal":{
+
+   }
+}

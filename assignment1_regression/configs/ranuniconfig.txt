@@ -1,0 +1,15 @@
+{
+   "dataloader":{
+      "random_mode":true,
+      "n":100,
+      "xdim":1
+   },
+   "linear":{
+      "iterations":1000,
+      "alpha":0.01,
+      "lmbda":1e-05
+   },
+   "modal":{
+      "unimodal":true
+   }
+}

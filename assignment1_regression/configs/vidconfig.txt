@@ -1,0 +1,16 @@
+{
+   "dataloader":{
+      "train_path":"../video_feature_train.csv",
+      "test_path":"../video_feature_test.csv",
+      "batch_size":100
+   },
+   "linear":{
+      "iterations":10000,
+      "xdim":25,
+      "alpha":0.001,
+      "lmbda":1e-05
+   },
+   "modal":{
+      "verbose":false
+   }
+}
