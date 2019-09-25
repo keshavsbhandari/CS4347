@@ -4,7 +4,7 @@ TOTAL POINTS : 200
 
 **IMPORTANT NOTICE**
     
-    Please submit only report in a pdf format , anwering all part questions 
+    Please submit only report in a pdf format , anwering every part of the questions 
     Reports should include screenshots of visualization of plots you get when you run your project
     If you have any confusion please visit me(TA) during my office hour or write an email
     
