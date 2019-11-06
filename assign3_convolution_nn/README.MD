@@ -5,6 +5,8 @@
 
     VISIT FOLLOWING KAGGLE SITE
     
+    NOTE : IF YOU ARE USING GPU : FOLLOW PYTORCH WEBSITE TO INSTALL GPU VERSION
+    
     DOWNLOAD DATA SET FROM 
         https://www.kaggle.com/prathmeshgodse/food101-zip/kernels
     
