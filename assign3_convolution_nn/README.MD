@@ -82,9 +82,9 @@
                 
                 It has all the dependencies you need
                 
-                NOTE : IF YOU ARE USING GPU : FOLLOW RESPECTIVE FRAMEWORK(PYTORCH,TENSORFLOW OR KERAS) WEBSITE TO INSTALL GPU                   VERSION
-                IF YOU ARE USING PYTORCH ABOVE pip install will install the cpu version, remove pytorch and install gpu version 
-                again.
+                NOTE : IF YOU ARE USING GPU : FOLLOW RESPECTIVE FRAMEWORK(PYTORCH,TENSORFLOW OR KERAS) WEBSITE 
+                TO INSTALL GPU VERSION
+                and if you are using pytorch with gpu, above pip install will install the cpu version, please remove pytorch                   and install gpu version again.
                       
                 
                  
