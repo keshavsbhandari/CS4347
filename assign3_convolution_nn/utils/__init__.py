@@ -1,10 +1,5 @@
-from torchvision.utils import make_grid
-from torchvision.transforms import (ToPILImage, ToTensor)
-from PIL import Image
 from pathlib import Path
-import random
-import torch
-from configs import train_path
+from configs import label_101_dict
 
 def get_data(path):
     """
@@ -13,6 +8,12 @@ def get_data(path):
     """
     paths = Path(path).glob('*/**/*.jpg')
     paths = [*map(lambda x: (x.as_posix(), 1*(x.parent.name == 'hot_dog')), paths)]
+    return paths
+
+def get_data101(path):
+    paths = Path(path).glob('*/**/*.jpg')
+    label = lambda x: label_101_dict.get(x)
+    paths = [*map(lambda x: (x.as_posix(), label(x.parent.name)), paths)]
     return paths
 
 class AverageMeter(object):

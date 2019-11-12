@@ -13,9 +13,13 @@ from models.simpleclassifier import NaiveDLClassifier
 
 
 from os import environ as env
+
 if torch.cuda.is_available():
-    GPUS = env["CUDA_VISIBLE_DEVICES"]
-    GPUS_LIST = list(range(GPUS).split(','))
+    try:
+        GPUS = env["CUDA_VISIBLE_DEVICES"]
+        GPUS_LIST = list(range(len(GPUS.split(','))))
+    except:
+        GPUS_LIST = None
 else:
     GPUS_LIST = []
 
@@ -31,12 +35,13 @@ class HotDogTrainer(object):
         self.global_step = 9
         self.writer = SummaryWriter()
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr = lr)
+        print(len(self.data.train()))
         self.scheduler = CosineAnnealingLR(self.optimizer, len(self.data.train()))
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cuda:0" if GPUS_LIST else "cpu")
         self.loss = torch.nn.BCELoss()
 
     def initialize(self):
-        if torch.cuda.is_available():
+        if GPUS_LIST:
             self.model.to(self.device)
             self.model = torch.nn.DataParallel(self.model, device_ids=self.gpu_ids)
         if self.load_model_path:
@@ -47,7 +52,7 @@ class HotDogTrainer(object):
         import json
         with open(metrics_path,'w') as f:
             json.dump(metrics, f)
-        if torch.cuda.is_available():
+        if GPUS_LIST:
             torch.save(self.model.module.state_dict(), self.load_model_path)
         else:
             torch.save(self.model.state_dict(), self.load_model_path)
@@ -134,7 +139,7 @@ class HotDogTrainer(object):
         with open(metrics_path, 'r') as f:
             self.stat_cache = json.load(f)
 
-        if torch.cuda.is_available():
+        if GPUS_LIST:
             self.model.module.load_state_dict(torch.load(self.load_model_path))
         else:
             self.model.load_state_dict(torch.load(self.load_model_path))

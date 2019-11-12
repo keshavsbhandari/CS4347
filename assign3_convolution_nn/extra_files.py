@@ -1,7 +1,8 @@
 from dataloader.hotdogloader import HotDogDataSetLoader
 from torchvision.utils import make_grid
 from torchvision.transforms import (ToPILImage, ToTensor)
-from utils import get_data, train_path
+from utils import get_data
+from configs import train_path
 from PIL import Image
 import torch
 import random
