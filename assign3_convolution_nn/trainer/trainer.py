@@ -78,7 +78,7 @@ class HotDogTrainer(object):
 
                 y_ = (y_ >= 0.5).int().flatten()
                 acc = 100. * ((y_ == y.flatten()).sum()) / float(len(y_))
-                self.avg_acc.update(acc)
+                self.avg_acc.update(acc.item())
                 self.avg_loss.update(loss.item())
 
                 loss.backward()
@@ -111,9 +111,9 @@ class HotDogTrainer(object):
                 loss = self.loss(y_, y.float())
                 y_ = (y_ >= 0.5).int().flatten()
                 acc = 100. * ((y_ == y.flatten()).sum()) / float(len(y_))
-                self.avg_acc.update(acc)
+                self.avg_acc.update(acc.item())
 
-                self.avg_acc.update(acc)
+                self.avg_acc.update(acc.item())
                 self.avg_loss.update(loss.item())
 
                 teststream.set_postfix({'epoch': nb_epoch,

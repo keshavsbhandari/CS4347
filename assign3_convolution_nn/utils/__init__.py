@@ -11,7 +11,14 @@ def get_data(path):
     return paths
 
 def get_data101(path):
-    paths = Path(path).glob('*/**/*.jpg')
+    paths = [*Path(path).glob('*/**/*.jpg')]
+    if not paths:
+        path.replace('/food101small/','/food101small/food101small/')
+        paths = [*Path(path).glob('*/**/*.jpg')]
+        
+        if not paths:
+            raise Exception("PLEASE CHECK THE DATA PATH IN DATA FOLDER")
+        
     label = lambda x: label_101_dict.get(x)
     paths = [*map(lambda x: (x.as_posix(), label(x.parent.name)), paths)]
     return paths

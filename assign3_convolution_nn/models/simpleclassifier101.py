@@ -30,7 +30,7 @@ class NaiveDLClassifier(nn.Module):
 
         self.pipes = nn.Sequential(self.pipe1, self.pipe2, self.pipe3)
 
-        self.predictor = nn.Sequential(nn.Linear(512, num_classes), nn.Softmax(dim=-1))
+        self.predictor = nn.Sequential(nn.Linear(512, num_classes))
 
     def forward(self, x):
         x = self.pipes(x)

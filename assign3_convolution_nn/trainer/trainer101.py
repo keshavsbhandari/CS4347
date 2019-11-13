@@ -35,8 +35,7 @@ class HotDogTrainer(object):
         self.stat_cache = None
         self.global_step = 9
         self.writer = SummaryWriter()
-        self.optimizer = torch.optim.SGD(self.model.parameters(), lr = lr)
-        print(len(self.data.train()))
+        self.optimizer = torch.optim.SGD(self.model.parameters(), lr = 0.0001)
         self.scheduler = CosineAnnealingLR(self.optimizer, len(self.data.train()))
         self.device = torch.device("cuda:0" if GPUS_LIST else "cpu")
         self.loss = torch.nn.CrossEntropyLoss()
@@ -71,22 +70,16 @@ class HotDogTrainer(object):
             x = data['image'].to(self.device)
             y = data['label'].to(self.device)
 
-            self.optimizer.zero_grad()
-
             with torch.set_grad_enabled(True):
-                y_ = self.model.float()(x)
-
-
+                y_ = self.model(x)
                 out_labels = torch.max(y_, 1)[1]
                 loss = self.loss(y_, y)
-
-                acc = 100. * ((y.int().flatten() == out_labels.int().flatten()).sum() / y.size(0))
-                self.avg_acc.update(acc)
-                self.avg_loss.update(loss.item())
-
+                self.optimizer.zero_grad()
                 loss.backward()
-
                 self.optimizer.step()
+                acc = 100. * ((y.int().flatten() == out_labels.int().flatten()).sum() / y.size(0))
+                self.avg_acc.update(acc.item())
+                self.avg_loss.update(loss.item())
 
                 self.writer.add_scalar('Loss/Train', self.avg_loss.avg, self.global_step)
                 self.writer.add_scalar('Accuracy/Train', self.avg_acc.avg, self.global_step)
@@ -114,9 +107,8 @@ class HotDogTrainer(object):
                 loss = self.loss(y_, y)
                 out_labels = torch.max(y_, 1)[1]
                 acc = 100. * ((y.int().flatten() == out_labels.int().flatten()).sum() / y.size(0))
-                self.avg_acc.update(acc)
+                self.avg_acc.update(acc.item())
 
-                self.avg_acc.update(acc)
                 self.avg_loss.update(loss.item())
 
                 teststream.set_postfix({'epoch': nb_epoch,
