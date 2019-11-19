@@ -4,7 +4,7 @@
 
 **IMPORTANT NOTICE : DEADLINE EXTENDED FOR ONE MORE WEEK**  
     
-    GOOD NEWS : DUDE DATE IS NOW 25TH OF DECEMBER
+    GOOD NEWS : DUDE DATE IS NOW 25TH OF NOVEMBER
     
     I have realised you guys are having pretty bad time doing this assignment, as you are only relying on this
     pytorch project. But, to start easily keras is much more easier and you can implement it with few lines of codes.
