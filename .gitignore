@@ -3,6 +3,9 @@ data/__pycache__
 misc/__pycache__
 models/__pycache__
 utils/__pycache__
+archive/
+runs/
+*.h5
 *.pyc
 *.DS_Store
 .git
